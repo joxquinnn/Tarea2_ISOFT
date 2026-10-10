@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  api-compras:
+    build: .
+    image: compras-app-iso:latest
+    container_name: compras_backend
+    ports:
+      - "3001:3001"
+    environment:
+      - APP_PORT=3001
+      - APP_ENV=production
+      - CSV_PATH=/app/data/compras.csv 
+    volumes:
+      - ../compras.csv:/app/data/compras.csv:ro
