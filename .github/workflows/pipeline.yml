@@ -84,7 +84,7 @@ jobs:
 
       - name: etiqueta y publicacion GHCR
         run: |
-          REPO_LOWERCASE=$(echo "{{env.REGISTRY}}/${{env.IMAGE_NAME}} | tr '[:upper:]' '[:lower:]'")
+          REPO_LOWERCASE=$(echo "${{env.REGISTRY}}/${{env.IMAGE_NAME}} | tr '[:upper:]' '[:lower:]'")
           SHORT_SHA=${GITHUB_SHA::7}
 
           docker tag app-temp $REPO_LOWERCASE:lastest
