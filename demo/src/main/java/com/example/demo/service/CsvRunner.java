@@ -16,7 +16,6 @@ public class CsvRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("--- INICIANDO LECTURA DEL CSV ---");
         
-        // Llamamos a tu método
         csvReaderService.leerCsvBasico();
         
         System.out.println("--- FIN DE LA LECTURA ---");
