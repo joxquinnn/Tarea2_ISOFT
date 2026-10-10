@@ -12,4 +12,4 @@ services:
       - APP_ENV=production
       - CSV_PATH=/app/data/compras.csv 
     volumes:
-      - ../compras.csv:/app/data/compras.csv:ro
+      - ./compras.csv:/app/data/compras.csv:ro

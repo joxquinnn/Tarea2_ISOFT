@@ -21,7 +21,7 @@ public class comprasController {
         this.compraService = compraService;
     }
 
-    @GetMapping("/compras/detalle/{id}")
+    @GetMapping("/detalle/{id}")
     public ResponseEntity<CompraDTO> getDetalleCompra(@PathVariable int id) {
         CompraDTO compra = compraService.buscarCompraId(id);
         if (compra == null) {
