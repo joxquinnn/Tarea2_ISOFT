@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout de codigo
-        uses: actions/setup-java@v4
+        uses: actions/checkout@v4
       
       - name: configurar JDK21
         uses: actions/setup-java@v4
@@ -43,7 +43,7 @@ jobs:
           cache: 'maven'
       
       - name: generar el jar
-        run: mvn clean package -Dskiptest
+        run: mvn clean package -DskipTest
 
       - name: configurar imagen de docker
         run: docker build -t app-temp .
@@ -84,7 +84,7 @@ jobs:
 
       - name: etiqueta y publicacion GHCR
         run: |
-          REPO_LOWERCASE=$(echo "${{env.REGISTRY}}/${{env.IMAGE_NAME}} | tr '[:upper:]' '[:lower:]'")
+          REPO_LOWERCASE=$(echo "${{env.REGISTRY}}/${{env.IMAGE_NAME}}" | tr '[:upper:]' '[:lower:]')
           SHORT_SHA=${GITHUB_SHA::7}
 
           docker tag app-temp $REPO_LOWERCASE:lastest
